@@ -10,7 +10,7 @@ def convertToDict(filename):
     f = open(filename, 'r')
     text = f.read().split("\n")
     for x in range (1, len(text)- 2):
-        cat = text[x].split(',')
+        cat = text[x].split(',', 1)
         title = cat[0]
         percent = float(cat[-1]) 
         diction[title] = percent
