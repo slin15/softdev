@@ -14,10 +14,19 @@ def convertToDict(filename):
     print(text)
     for x in range (1, len(text)- 2):
         cat = text[x].rsplit(',', 1)
-        title = cat[0]
+        title = cat[0].strip('"')
         percent = float(cat[-1]) 
         diction[title] = percent
 
+def randomOcc():
+    randlist = []
+    for key in diction:
+        current = diction[key]
+        freq = int(current *10)
+        for i in range (freq):
+            randlist.append(key)
+    print (random.choice(randlist))
+       
 @app.route('/')
 def home():
     return 'Welcome <br> <a href="/occupations"> Occupations </a>'
