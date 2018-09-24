@@ -16,8 +16,14 @@ def convertToDict(filename):
     for x in range (1, len(text)- 2):
         cat = text[x].rsplit(',', 1)
         title = cat[0].strip('"')
-        percent = float(cat[-1]) 
+        percent = float(cat[-1])
         diction[title] = percent
+
+def findLast():
+    diff = 100.0
+    for key in diction:
+        diff -= diction[key]
+    return ("%.1f" % diff) 
 
 def randomOcc():
     randlist = []
@@ -39,7 +45,8 @@ def test():
                                title = "Occupations",
                                heading = "This file selects a random occupation from the table below and displays it at the top.",
                                collection = diction,
-                               occupation = "this is your occupation: " + randomOcc())
+                               occupation = "this is your occupation: " + randomOcc(),
+                               percentage = findLast())
 
 if __name__ == "__main__":
     app.debug = True
