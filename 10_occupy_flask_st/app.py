@@ -6,15 +6,29 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+diction = {}
+
+def convertToDict(filename):
+    f = open(filename, 'r')
+    text = f.read().split("\n")
+    print(text)
+    for x in range (1, len(text)- 2):
+        cat = text[x].rsplit(',', 1)
+        title = cat[0]
+        percent = float(cat[-1]) 
+        diction[title] = percent
+
 @app.route('/')
 def home():
     return 'Welcome <br> <a href="/occupations"> Occupations </a>'
 
 @app.route('/occupations')
 def test():
+    convertToDict('data/occupations.csv')
     return render_template('temp01.html',
                                title = "Occupations",
-                               heading = "This file selects a random occupation from the table below and displays it at the top.")
+                               heading = "This file selects a random occupation from the table below and displays it at the top.",
+                               collection = diction)
 
 if __name__ == "__main__":
     app.debug = True
