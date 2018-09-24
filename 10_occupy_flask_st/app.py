@@ -6,6 +6,7 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+import random
 diction = {}
 
 def convertToDict(filename):
@@ -25,7 +26,7 @@ def randomOcc():
         freq = int(current *10)
         for i in range (freq):
             randlist.append(key)
-    print (random.choice(randlist))
+    return (random.choice(randlist))
        
 @app.route('/')
 def home():
@@ -37,7 +38,8 @@ def test():
     return render_template('temp01.html',
                                title = "Occupations",
                                heading = "This file selects a random occupation from the table below and displays it at the top.",
-                               collection = diction)
+                               collection = diction,
+                               occupation = "this is your occupation: " + randomOcc())
 
 if __name__ == "__main__":
     app.debug = True
