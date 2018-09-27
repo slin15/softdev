@@ -10,8 +10,8 @@ def convertToDict(filename):
     f = open(filename, 'r')
     text = f.read().split("\n")
     #turns the csv file into a list separated by commas
-    for x in range (1, len(text)- 2):
-        cat = text[x].rsplit(',', 1)
+    for index in range (1, len(text)- 2):
+        cat = text[index].rsplit(',', 1)
         #splits each string in text into title and percent
         title = cat[0].strip('"')
         #removes quotes from title 
