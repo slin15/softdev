@@ -18,7 +18,16 @@ def convertToDict(filename):
         percent = float(cat[-1])
         #typecasts the percent into a float 
         diction[title] = percent
-        #sets the value of the title key in diction to percent 
+        #sets the value of the title key in diction to percent
+    return diction 
+
+def findLast():
+    diff = 100.0
+    for key in diction:
+        diff -= diction[key]
+        #subtracts percent of each occupation from total 
+    return ("%.1f" % diff)
+    #rounds the difference to the nearest tenth 
 
 def randomOcc():
     randlist = []
@@ -30,12 +39,5 @@ def randomOcc():
         for i in range (freq):
             randlist.append(key)
             #returns a randomly selected occupation
-    print (random.choice(randlist))
-       
+    return (random.choice(randlist))
 
-def main():
-    convertToDict('occupations.csv')
-    print (diction)
-    randomOcc() 
-
-main()
