@@ -1,22 +1,20 @@
-# Anton Danylenko and Susan Lin 
+# Susan Lin 
 # SoftDev pd8
-# K #10: Jinja Tuning ...
-# 2018-09-24
+# K #13: Echo Echo Echo . . .
+# 2018-09-28
 
-from util import occupations 
-
-from flask import Flask, render_template
+from flask import Flask, render_template, request 
 app = Flask(__name__)
        
 @app.route('/')
-def home():
-    return 'Welcome <br> <a href="/auth"> Returning... </a>'
+def display():
+    return render_template('form.html') 
 
 @app.route('/auth')
-def test():
-    return render_template('temp01.html',
-                               title = "",
-                               heading = "")
+def authenticate():
+    return render_template('return.html',
+                           user=request.args['in'],
+                           method = request.method)
 
 if __name__ == "__main__":
     app.debug = True
