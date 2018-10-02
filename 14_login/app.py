@@ -16,7 +16,7 @@ def home():
      return render_template('form.html')
 
 @app.route('/login', methods=["POST", "GET"])
-def login():
+def login():    
     if request.args['user'] in users.keys() and users[request.args['user']] == request.args['pass']:
          return render_template('return.html', user=request.args['user'], password=request.args['pass']) 
     
@@ -25,8 +25,6 @@ def login():
 
     elif users[request.args['user']] != request.args['pass']:
         return render_template('error.html', error="incorrect password")
-    else:
-        return redirect(url_for('home')) 
 
 @app.route("/logout", methods=["POST", "GET"])
 def logout():
