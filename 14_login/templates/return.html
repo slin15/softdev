@@ -6,9 +6,16 @@
   <body>
     <br>
     hello {{ user }}!
-    your pass is {{password}}!
+    your pass is {{ password }}!
     <br>
-    we used request method {{ method }} to store your username and enable this $
+     you're currently logged in
+    <br>
+    <br>
+    <form action="/" name="main" method="GET">
+                        <button name="out" type="LOG OUT">
+                        Submit
+                        </button>
+    </form>
   </body>
 </html>
 

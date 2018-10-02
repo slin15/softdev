@@ -4,14 +4,14 @@
     <title> !SUBMIT SOMETHING INTERESTING! </title>
   </head>
   <body>
-    <br>
-    pick a username:
-    <br>
-    <form action="/auth" name="main" method="GET" placeholder="Username">
-                        <input type="text" name="in">
+    <form action="/login" method="POST">
                         <br>
-                        <input type="text" name = "pass">
-                        <button name="enter:" type="submit">
+                        <input type="text" name="username" placeholder="Username">
+                        <br>
+                        <input type="text" name = "password" placeholder="Password>
+                        <br>
+                        <br> 
+                        <button name="done" type="submit">
                         Submit
                         </button>
     </form>

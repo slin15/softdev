@@ -8,21 +8,38 @@ from os import urandom
 
 app = Flask(__name__)
 
-app.secret_key = urandom(32) 
+app.secret_key = urandom(32)
+
+users = {"slin15": "12345"} 
        
-@app.route('/', methods=["GET"])
-def disp_login():
-    return render_template('form.html') 
+@app.route('/', methods=["POST", "GET"])
+def home():
+     if not session.get('logged_in'):
+          return render_template('form.html')
+     else:
+        return "Hello!"
 
-@app.route('/auth')
-def authenticate():
-    print (url_for('disp_login'))
-    print (url_for('authenticate'))
-    return (redirect(url_for('disp_login')))
-    #return render_template('return.html',
-    #                       user=request.args['in'],password = request.args['pa$
-    #                      method = request.method)
+@app.route('/login')
+def login():
+    user = request.args["in"]
+    password = request.args["pass"]
 
+    if user in users.keys() and users[user] == password:
+        session['logged_in'] = True
+    
+    elif user not in users.keys():
+        return render_template('error.html', error = "username not found")
+
+    elif users[user] != password:
+        return render_template('error.html', error = "incorrect password")
+
+    else:
+        return render_template('error.html', error = "just bad juju")
+
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    return home()
 
 if __name__ == "__main__":
     app.debug = True
