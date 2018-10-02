@@ -17,21 +17,21 @@ def home():
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
-    if request.args['username'] in users.keys() and users[user] == request.args['password']:
-         return render_template('return.html', user = 'slin15') 
+    if request.args['user'] in users.keys() and users[request.args['user']] == request.args['pass']:
+         return render_template('return.html', user=request.args['user'], password=request.args['pass']) 
     
-    elif request.args['username'] not in users.keys():
-        return render_template('error.html', error = "username not found")
+    elif request.args['user'] not in users.keys():
+        return render_template('error.html', error="username not found")
 
-    elif users[request.args['username']] != request.args['password']:
-        return render_template('error.html', error = "incorrect password")
+    elif users[request.args['user']] != request.args['pass']:
+        return render_template('error.html', error="incorrect password")
     else:
-        return render_template('form.html')
+        return redirect(url_for('home')) 
 
 @app.route("/logout", methods=["POST", "GET"])
 def logout():
     session.pop['slin15'] 
-    return render_template('form.html')
+    return redirect(url_for('home'))
 
 if __name__ == "__main__":
     app.debug = True
