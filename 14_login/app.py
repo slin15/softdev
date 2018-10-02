@@ -9,37 +9,29 @@ from os import urandom
 app = Flask(__name__)
 
 app.secret_key = urandom(32)
-
 users = {"slin15": "12345"} 
        
 @app.route('/', methods=["POST", "GET"])
 def home():
-     if not session.get('logged_in'):
-          return render_template('form.html')
-     else:
-        return "Hello!"
+     return render_template('form.html')
 
-@app.route('/login')
+@app.route('/login', methods=["POST", "GET"])
 def login():
-    user = request.args["in"]
-    password = request.args["pass"]
-
-    if user in users.keys() and users[user] == password:
-        session['logged_in'] = True
+    if request.args['username'] in users.keys() and users[user] == request.args['password']:
+         return render_template('return.html', user = 'slin15') 
     
-    elif user not in users.keys():
+    elif request.args['username'] not in users.keys():
         return render_template('error.html', error = "username not found")
 
-    elif users[user] != password:
+    elif users[request.args['username']] != request.args['password']:
         return render_template('error.html', error = "incorrect password")
-
     else:
-        return render_template('error.html', error = "just bad juju")
+        return render_template('form.html')
 
-@app.route("/logout")
+@app.route("/logout", methods=["POST", "GET"])
 def logout():
-    session['logged_in'] = False
-    return home()
+    session.pop['slin15'] 
+    return render_template('form.html')
 
 if __name__ == "__main__":
     app.debug = True
