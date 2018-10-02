@@ -1,4 +1,4 @@
-# Team : Robin Han and Susan Lin 
+# Team SillySquids : Robin Han and Susan Lin 
 # SoftDev pd8
 # K #14: Do I Know You?    this
 # 2018-10-01
