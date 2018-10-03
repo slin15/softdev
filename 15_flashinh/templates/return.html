@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
+  
+    {% block head %}
     <title> Here is your information :00 </title>
+    {% endblock %}
+    
   </head>
   <body>
+
+    {% block content %} 
     <br>
     hello {{ user }}!
-    your pass is {{ password }}!
+    your password is {{ password }}!
+    <br>
+
     <br>
      you're currently logged in
     <br>
-    <br>
+    
     <form action="/" name="main" method="POST">
                         <button name="enter" type="submit">
                         LOG OUT
                         </button>
     </form>
+    {% endblock %}
+    
   </body>
 </html>
 
