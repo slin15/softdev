@@ -14,21 +14,21 @@ c = db.cursor()               #facilitate db ops
 
 #==========================================================
 
-
 print("STUDENTS")
 with open('peeps.csv') as csvfile:
-    #command = "CREATE TABLE roster (name TEXT, age INTEGER, userid INTEGER)"        #build SQL stmt, save as string
+    #command = "CREATE TABLE roster (name TEXT, age INTEGER, userid INTEGER);"        #build SQL stmt, save as string
     #c.execute(command)    #run SQL statement 
     reader = csv.DictReader(csvfile)
     for row in reader:
+        print(row['name'], row['age'], row['id'])
         #command = "INSERT INTO roster VALUES(row['name'])"
         #c.execute(command)
         
 
 print("\n COURSES")
 with open('courses.csv') as csvfile:
-    command = "CREATE TABLE courses (code TEXT, mark INTEGER, id INTEGER)"        #build SQL stmt, save as string
-    c.execute(command)    #run SQL statement
+    #command = "CREATE TABLE courses (code TEXT, mark INTEGER, id INTEGER);"        #build SQL stmt, save as string
+    #c.execute(command)    #run SQL statement
     reader = csv.DictReader(csvfile)
     for row in reader: 
         print(row['code'], row['mark'], row['id'])
