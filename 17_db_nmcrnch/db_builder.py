@@ -1,4 +1,4 @@
-#LemonSoda (Kenny Li & Johnson Li)
+#RemoteError (Susan Lin and Kenny Li) 
 #SoftDev1 pd8
 #K16 No Trouble
 #2018-10-04
