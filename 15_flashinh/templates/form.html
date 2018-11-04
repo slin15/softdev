@@ -1,4 +1,4 @@
-{# form.html retains the properties of base.html unless otherwise specified #} 
+{# form.html retains the properties of base.html unless otherwise specified #}
 {% extends "base.html" %}
 
 <!DOCTYPE html>
@@ -8,26 +8,25 @@
   </head>
   <body>
 
-    {# at the top of the page, displays the error message #} 
+    {# at the top of the page, displays the error message #}
     {% block error %}
         {% if error %}
             {% set msgs = get_flashed_messages() %}
             {{ msgs[0] }}
         {% endif %}
     {% endblock %}
-    
+
     {% block content %}
-    <form action="/login" name="main" method="GET" placeholder="Username">
+    <form action="/auth" name="main" method="GET" placeholder="Username">
 			<input type="text" name="user" placeholder = 'username'>
-			<br> 
+			<br>
 			<input type="text" name="pass" placeholder = 'password'>
-			<br> 
+			<br>
 			<button name="enter:" type="submit">
 			Submit
 			</button>
     </form>
     {% endblock %}
-    
-  </body> 
-</html>
 
+  </body>
+</html>
