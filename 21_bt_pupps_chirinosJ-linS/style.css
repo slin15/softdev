@@ -1,0 +1,7 @@
+body {
+    background-image: url(http://homer.stuy.edu/~jchirinos/doggobackground.jpg);
+}
+
+.carousel-inner {
+    height: 50vh;
+}
