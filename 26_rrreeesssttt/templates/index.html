@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> API TESTING WOW </title>
+  </head>
+  <body>
+      <center>
+        <div>
+            <h1 style = "font-size: 35px"><b> currencylayer </b></h1>
+            <p>This was taken in terms of {{ source }} </p>
+            {% for item in curr %}
+                <p>{{ item }} : {{ curr[item] }} </p>
+            {% endfor %}
+          </div>
+        <div>
+            <h1 style = "font-size: 35px"><b> xkcd </b></h1>
+            <p><img src={{ image }} alt="comic"/></p>
+          </div>
+        <div>
+            <h1 style = "font-size: 35px"><b> advice slip </b></h1>
+            <p> fortune all around: {{ advice }} </p>
+          </div> 
+      </center>
+  </body>
+</html>
