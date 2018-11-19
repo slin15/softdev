@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> API TESTING WOW </title>
+  </head>
+  <body>
+      <center>
+        <div>
+            <h1 style = "font-size: 35px"><b> Enigma Public </b></h1>
+            <h2 style = "font-size: 20px"><b> Top Level Collections Available: </b></h2>
+            {% for item in info %}
+                <p><u> {{ item['display_name'] }} </u></p>
+                <p> {{ item['description_short'] }} </p>
+                <p> ID - {{ item['id'] }} </p>
+            {% endfor %}
+            <h3 style = "font-size: 20px"><b> Datasets with names beginning with Congress </b></h3>
+            {% for item in info2 %}
+                <p><u> {{ item['display_name'] }} </u></p>
+                <p> {{ item['description_short'] }} </p>
+                <p> ID - {{ item['id'] }} </p>
+            {% endfor %}
+          </div>
+      </center>
+  </body>
+</html>

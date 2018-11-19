@@ -5,10 +5,7 @@
 
 from flask import Flask, render_template, request, session, redirect, url_for
 import urllib.request as request
-import json, ssl
-
-app = Flask(__name__)
-context = ssl._create_unverified_context()
+import json
 
 #home root
 @app.route('/', methods=["POST", "GET"])
